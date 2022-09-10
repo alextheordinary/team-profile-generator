@@ -35,7 +35,7 @@ function setupManager() {
         ])
         .then((answers) => {
             teamManager = new Manager(answers.name, answers.id, answers.email, answers.officeNumber);
-            console.log(teamManager);
+            teamMembers.push(teamManager);
             callMenuPrompt();
         })
         .catch((error) => {
