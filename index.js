@@ -75,7 +75,6 @@ function addEngineer() {
         .then((answers) => {
             let newEngineer = new Engineer(answers.name, answers.id, answers.email, answers.github);
             teamMembers.push(newEngineer);
-            // console.log(teamMembers);
             callMenuPrompt();
         })
         .catch((error) => {
@@ -115,7 +114,6 @@ function addIntern() {
         .then((answers) => {
             let newIntern = new Intern(answers.name, answers.id, answers.email, answers.school);
             teamMembers.push(newIntern);
-            // console.log(teamMembers);
             callMenuPrompt();
         })
         .catch((error) => {
@@ -154,7 +152,7 @@ function callMenuPrompt() {
                 }
                 case "Publish": {
                     pageBuilder = new BuildPage();
-                    pageBuilder.writeFile();
+                    pageBuilder.writeFile(teamMembers);
                     break;
                 }
 
