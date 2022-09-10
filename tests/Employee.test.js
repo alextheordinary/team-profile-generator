@@ -1,10 +1,10 @@
-const Employee = require("../Employee");
+const Employee = require("../lib/Employee");
 
 describe("Employee class", () => {
     describe("getName method", () => {
         it("returns employee name", () => {
             const testEmployee = new Employee('Steve', 1, 'steve@steveco.com');
-            expect(testEmployee.getName().toBe('Steve'));
+            expect(testEmployee.getName()).toBe('Steve');
         });
     });
 });
