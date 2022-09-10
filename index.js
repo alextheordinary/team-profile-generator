@@ -4,6 +4,7 @@ const Employee = require('./lib/Employee');
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
+const BuildPage = require('./lib/BuildPage');
 let teamManager;
 let teamMembers = [];
 
@@ -142,7 +143,6 @@ function callMenuPrompt() {
             },
         ])
         .then((answers) => {
-            console.log(answers.action);
             switch (answers.action) {
                 case "Engineer": {
                     addEngineer();
@@ -153,7 +153,8 @@ function callMenuPrompt() {
                     break;
                 }
                 case "Publish": {
-
+                    pageBuilder = new BuildPage();
+                    pageBuilder.writeFile();
                     break;
                 }
 
