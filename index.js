@@ -5,10 +5,9 @@ const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 const BuildPage = require('./lib/BuildPage');
-let teamManager;
-let teamMembers = [];
+let teamMembers = []; // Array of team members to add to profile page
 
-// Solicits information about the team manager and then creates a new manager object after validating inputs
+// Solicits information about the team manager and then creates a new manager object after validating inputs. Adds manager to team and then calls the main menu prompt
 function setupManager() {
     inquirer
         .prompt([
@@ -34,7 +33,7 @@ function setupManager() {
             },
         ])
         .then((answers) => {
-            teamManager = new Manager(answers.name, answers.id, answers.email, answers.officeNumber);
+            let teamManager = new Manager(answers.name, answers.id, answers.email, answers.officeNumber);
             teamMembers.push(teamManager);
             callMenuPrompt();
         })
@@ -47,7 +46,7 @@ function setupManager() {
         });
 }
 
-// Brings up the prompt to solicit Engineer information and then add them to the team
+// Brings up the prompt to solicit Engineer information, creates a new Engineer object, and then adds them to the team
 function addEngineer() {
     inquirer
         .prompt([
@@ -86,7 +85,7 @@ function addEngineer() {
         });
 }
 
-// Brings up the prompt to solicit Intern information and then add them to the team
+// Brings up the prompt to solicit Intern information, creates a new Intern object, and then adds them to the team
 function addIntern() {
     inquirer
         .prompt([
@@ -151,7 +150,7 @@ function callMenuPrompt() {
                     break;
                 }
                 case "Publish": {
-                    pageBuilder = new BuildPage();
+                    const pageBuilder = new BuildPage();
                     pageBuilder.writeFile(teamMembers);
                     break;
                 }
