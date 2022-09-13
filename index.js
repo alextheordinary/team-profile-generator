@@ -135,7 +135,7 @@ function callMenuPrompt() {
                 choices: [
                     { name: "Add an engineer", value: "Engineer" },
                     { name: "Add an intern", value: "Intern" },
-                    { name: "Publish HTML Page", value: "Publish" },
+                    { name: "Finish Building Team and Publish HTML Page", value: "Publish" },
                 ]
             },
         ])
